@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Junjie Xie — Embodied AI, Vision-Language-Action models, and robot learning.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Junjie Xie | Embodied AI</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%231f4fd6%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2243%22 font-weight=%22700%22 fill=%22white%22>JX</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Junjie Xie — Home">Junjie Xie</a>
+    <nav aria-label="Main navigation">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="mailto:xiejunjie24@mails.ucas.ac.cn">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <img class="portrait" src="profile.jpg" alt="Junjie Xie" width="185" height="223">
+      <div class="hero-content">
+        <p class="overline">Embodied AI Researcher</p>
+        <h1>Junjie Xie <span lang="zh-CN">谢骏杰</span></h1>
+        <p class="intro">
+          I am an M.Eng. student in Artificial Intelligence at the
+          <a href="https://www.ucas.ac.cn/" target="_blank" rel="noopener noreferrer">University of Chinese Academy of Sciences</a>,
+          affiliated with the
+          <a href="https://ia.cas.cn/" target="_blank" rel="noopener noreferrer">Institute of Automation, Chinese Academy of Sciences</a>.
+          My work focuses on Vision-Language-Action models, agentic robot systems, robot perception, and closed-loop manipulation.
+        </p>
+        <div class="profile-links" aria-label="External profile links">
+          <a href="mailto:xiejunjie24@mails.ucas.ac.cn">Email</a>
+          <a href="https://github.com/Orange-w-Cat" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://huggingface.co/open-gigaai/GigaBrain-0.7-3.5B-Base" target="_blank" rel="noopener noreferrer">Hugging Face</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="content-section">
+      <header class="section-header">
+        <p>Selected work</p>
+        <h2>Research</h2>
+      </header>
+
+      <div class="list">
+        <article class="item">
+          <div class="item-year">2026</div>
+          <div class="item-body">
+            <p class="venue">IEEE CASE 2026</p>
+            <h3>
+              <a href="https://arxiv.org/abs/2609.25756" target="_blank" rel="noopener noreferrer">
+                MedVLA: A Hierarchical Vision-Language-Action Framework for Closed-Loop Precision Medical Robot Manipulation
+              </a>
+            </h3>
+            <p>
+              A hierarchical, tool-augmented VLA framework for safety-critical precision medical manipulation,
+              using constrained actions, state gating, and closed-loop verification.
+            </p>
+            <a class="text-link" href="https://arxiv.org/abs/2609.25756" target="_blank" rel="noopener noreferrer">View paper <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="item-year">2026</div>
+          <div class="item-body">
+            <p class="venue">IEEE Robotics and Automation Letters</p>
+            <h3>
+              <a href="https://arxiv.org/abs/2610.12241" target="_blank" rel="noopener noreferrer">
+                From Language to Motion: Task-Conditioned Focal-Stack Trajectory Integration for Microscopic Robots
+              </a>
+            </h3>
+            <p>
+              Language-guided open-set perception and uncertainty-aware focal-plane fusion for micron-level
+              trajectory recovery and closed-loop visual servoing.
+            </p>
+            <a class="text-link" href="https://arxiv.org/abs/2610.12241" target="_blank" rel="noopener noreferrer">View paper <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section">
+      <header class="section-header">
+        <p>Open source & systems</p>
+        <h2>Projects</h2>
+      </header>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <p class="project-type">Vision-Language-Action</p>
+          <h3>GigaBrain-0.7</h3>
+          <p>
+            Large-scale VLA pretraining and architecture work spanning Dual-Stream MoT,
+            temporal-spatial visual encoding, multi-embodiment adaptation, and world-model-conditioned control.
+          </p>
+          <a href="https://huggingface.co/open-gigaai/GigaBrain-0.7-3.5B-Base" target="_blank" rel="noopener noreferrer">Open on Hugging Face <span>↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <p class="project-type">World-Action Model</p>
+          <h3>HALO-WA</h3>
+          <p>
+            Lightweight actor-critic online reinforcement learning for residual correction
+            under calibration, perception, and contact errors.
+          </p>
+          <a href="https://github.com/YeanRoot/HALO-WA" target="_blank" rel="noopener noreferrer">Open GitHub repository <span>↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <p class="project-type">Agentic VLA</p>
+          <h3>GigaHarness</h3>
+          <p>
+            A long-horizon manipulation harness combining policy models, reusable skills,
+            robot tools, verification, recovery, and Real2Sim2Real evolution.
+          </p>
+          <span class="status">Forthcoming</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="content-section">
+      <header class="section-header">
+        <p>Background</p>
+        <h2>Education</h2>
+      </header>
+
+      <div class="education-list">
+        <article>
+          <div>
+            <h3><a href="https://www.ucas.ac.cn/" target="_blank" rel="noopener noreferrer">University of Chinese Academy of Sciences <span>↗</span></a></h3>
+            <p>Institute of Automation · M.Eng. in Artificial Intelligence</p>
+          </div>
+          <time datetime="2024/2027">2024 — 2027</time>
+        </article>
+        <article>
+          <div>
+            <h3><a href="https://www.cdut.edu.cn/" target="_blank" rel="noopener noreferrer">Chengdu University of Technology <span>↗</span></a></h3>
+            <p>B.Eng. in Electrical Engineering and Automation</p>
+          </div>
+          <time datetime="2020/2024">2020 — 2024</time>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-block">
+      <p>Research conversations and collaborations are welcome.</p>
+      <a href="mailto:xiejunjie24@mails.ucas.ac.cn">xiejunjie24@mails.ucas.ac.cn <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Junjie Xie</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+</body>
+</html>
