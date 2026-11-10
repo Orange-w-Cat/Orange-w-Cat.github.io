@@ -11,6 +11,7 @@
   const toggleIcon = toggle.querySelector('span');
   const currentLabel = demo.querySelector('.time-current');
   const totalLabel = demo.querySelector('.time-total');
+  const collection = document.querySelector('.collection-video');
 
   const simDuration = Number(demo.dataset.simDuration) || 562;
   const realDuration = Number(demo.dataset.realDuration) || 563.133333;
@@ -25,7 +26,7 @@
   };
 
   const forceMuted = () => {
-    for (const video of [sim, real]) {
+    for (const video of [sim, real, collection].filter(Boolean)) {
       video.muted = true;
       video.defaultMuted = true;
       video.volume = 0;
@@ -65,6 +66,7 @@
 
   const playTogether = async () => {
     forceMuted();
+    collection?.pause();
     if (sim.currentTime >= simDuration - 0.05) seekTogether(0);
     real.playbackRate = realScale;
     sim.playbackRate = 1;
@@ -112,6 +114,11 @@
       if (sim.paused) playTogether();
       else pauseTogether();
     });
+  }
+
+  if (collection) {
+    collection.addEventListener('play', pauseTogether);
+    collection.addEventListener('volumechange', forceMuted);
   }
 
   forceMuted();

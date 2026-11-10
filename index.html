@@ -233,6 +233,32 @@
               execution, post-action verification, and Real2Sim2Real feedback.
             </p>
           </div>
+
+          <div id="collection-demo" class="collection-demo">
+            <div class="demo-heading">
+              <div>
+                <p class="project-type">Self-evolution · Automated data collection</p>
+                <h4>From one execution to the next training episode</h4>
+              </div>
+              <span class="sync-chip">Real robot · Muted</span>
+            </div>
+
+            <div class="collection-video-shell">
+              <video class="collection-video" controls muted playsinline preload="metadata" poster="assets/gigaharness-auto-collection-poster.jpg" aria-label="Automated real-robot data collection demonstration">
+                <source src="assets/gigaharness-auto-collection.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="collection-flow" aria-label="Automated data collection loop">
+              <span>Execute</span><b>→</b><span>Assess</span><b>→</b><span>Record</span><b>→</b><span>Reset</span><b>→</b><span>Repeat</span>
+            </div>
+            <p class="demo-note">
+              The clip shows repeated real-robot pick-and-place collection across numbered target regions. In the
+              full GigaHarness loop, each run is followed by outcome assessment and data logging, then an automated
+              reset initiates the next rollout. Random resets broaden initial-state coverage, while reference-image
+              resets improve consistency and repeatability across collection rounds.
+            </p>
+          </div>
           <span class="status">Forthcoming</span>
         </article>
 

@@ -439,6 +439,44 @@ h1 span { margin-left: 10px; color: var(--muted); font-size: .38em; letter-spaci
   font-size: 13px;
   line-height: 1.6;
 }
+.collection-demo {
+  margin: 2px 0 25px;
+  padding-top: 24px;
+  border-top: 1px solid #dce3f4;
+}
+.collection-video-shell {
+  overflow: hidden;
+  border: 1px solid #24334d;
+  border-radius: 12px;
+  background: #07121d;
+  box-shadow: 0 14px 38px rgba(14, 25, 47, .10);
+}
+.collection-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #07121d;
+}
+.collection-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 15px 2px 0;
+  color: #647087;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.collection-flow span {
+  padding: 6px 9px;
+  color: #2e4266;
+  border: 1px solid #d5dff0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .72);
+}
+.collection-flow b { color: var(--violet); font-size: 12px; }
 
 .education-list article {
   display: flex;
