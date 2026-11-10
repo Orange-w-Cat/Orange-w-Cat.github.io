@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Junjie Xie — Embodied AI, Vision-Language-Action models, and robot learning.">
+  <meta name="description" content="Junjie Xie — Agentic AI for Embodied Intelligence, Vision-Language-Action models, and self-evolving robot systems.">
   <meta name="theme-color" content="#ffffff">
-  <title>Junjie Xie | Embodied AI</title>
+  <title>Junjie Xie | Agentic AI for Embodied Intelligence</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%231f4fd6%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2243%22 font-weight=%22700%22 fill=%22white%22>JX</text></svg>">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,7 +13,8 @@
   <header class="header">
     <a class="brand" href="#home" aria-label="Junjie Xie — Home">Junjie Xie</a>
     <nav aria-label="Main navigation">
-      <a href="#research">Research</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#research">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
       <a href="mailto:xiejunjie24@mails.ucas.ac.cn">Contact</a>
@@ -24,15 +25,21 @@
     <section id="home" class="hero">
       <img class="portrait" src="profile.jpg" alt="Junjie Xie" width="185" height="223">
       <div class="hero-content">
-        <p class="overline">Embodied AI Researcher</p>
+        <p class="overline">Agentic AI · Embodied Intelligence</p>
         <h1>Junjie Xie <span lang="zh-CN">谢骏杰</span></h1>
+        <p class="hero-thesis">Building embodied agents that perceive, reason, act, verify, and improve through interaction.</p>
         <p class="intro">
           I am an M.Eng. student in Artificial Intelligence at the
           <a href="https://www.ucas.ac.cn/" target="_blank" rel="noopener noreferrer">University of Chinese Academy of Sciences</a>,
           affiliated with the
           <a href="https://ia.cas.cn/" target="_blank" rel="noopener noreferrer">Institute of Automation, Chinese Academy of Sciences</a>.
-          My work focuses on Vision-Language-Action models, agentic robot systems, robot perception, and closed-loop manipulation.
+          My research explores <strong>Agentic AI for Embodied Intelligence</strong>: connecting
+          Vision-Language-Action models with executable skills, external tools, closed-loop verification,
+          failure recovery, and self-evolution for reliable physical interaction.
         </p>
+        <div class="agent-loop" aria-label="Research loop: perceive, reason, act, verify, and evolve">
+          <span>Perceive</span><b>→</b><span>Reason</span><b>→</b><span>Act</span><b>→</b><span>Verify</span><b>→</b><span>Evolve</span>
+        </div>
         <div class="profile-links" aria-label="External profile links">
           <a href="mailto:xiejunjie24@mails.ucas.ac.cn">Email</a>
           <a href="https://github.com/Orange-w-Cat" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -40,10 +47,50 @@
       </div>
     </section>
 
+    <section id="thesis" class="content-section thesis-section">
+      <header class="section-header">
+        <p>Research thesis</p>
+        <h2>Agentic for Embodied</h2>
+      </header>
+
+      <div class="thesis-content">
+        <p class="thesis-lead">
+          My goal is to move embodied AI beyond one-shot policy inference toward systems that can
+          decompose long-horizon tasks, invoke the right models and skills, inspect their own execution,
+          recover from failure, and turn experience into reusable competence.
+        </p>
+
+        <div class="pillar-grid">
+          <article class="pillar">
+            <span class="pillar-index">01</span>
+            <h3>Agentic VLA Systems</h3>
+            <p>Orchestrating foundation policies, skill routers, Code-as-Policy programs, robot primitives, and perception tools for long-horizon tasks.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-index">02</span>
+            <h3>Verified Physical Execution</h3>
+            <p>Grounding decisions with confidence-aware perception, constrained controllers, post-action verification, and targeted recovery.</p>
+          </article>
+          <article class="pillar">
+            <span class="pillar-index">03</span>
+            <h3>Self-Evolving Embodied Agents</h3>
+            <p>Mining rollout experience into reusable skills and workflows, validating them in simulation, and refining them with real-robot feedback.</p>
+          </article>
+        </div>
+
+        <div class="focus-strip" aria-label="Current research focus">
+          <span>VLA architecture & pretraining</span>
+          <span>Tool and skill orchestration</span>
+          <span>Verification & recovery</span>
+          <span>Real2Sim2Real evolution</span>
+        </div>
+      </div>
+    </section>
+
     <section id="research" class="content-section">
       <header class="section-header">
-        <p>Selected work</p>
-        <h2>Research</h2>
+        <p>Research output</p>
+        <h2>Publications</h2>
       </header>
 
       <div class="list">
@@ -51,6 +98,7 @@
           <div class="item-year">2026</div>
           <div class="item-body">
             <p class="venue">IEEE CASE 2026</p>
+            <span class="role-badge role-lead">First author</span>
             <h3>
               <a href="https://arxiv.org/abs/2609.25756" target="_blank" rel="noopener noreferrer">
                 MedVLA: A Hierarchical Vision-Language-Action Framework for Closed-Loop Precision Medical Robot Manipulation
@@ -67,7 +115,26 @@
         <article class="item">
           <div class="item-year">2026</div>
           <div class="item-body">
+            <p class="venue">IEEE ICRA · Under review</p>
+            <span class="role-badge role-lead">Co-first author · second-listed</span>
+            <h3>
+              <a href="https://arxiv.org/abs/2610.15766" target="_blank" rel="noopener noreferrer">
+                SurgiCLAW: An Interpretable Atomic-Skill Agent for Precision Robotic Micromanipulation
+              </a>
+            </h3>
+            <p>
+              An interpretable MLLM agent that maps surgical observations to auditable atomic-skill calls,
+              with safety-gated deterministic controllers for precise physical execution.
+            </p>
+            <a class="text-link" href="https://arxiv.org/abs/2610.15766" target="_blank" rel="noopener noreferrer">View paper <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="item-year">2026</div>
+          <div class="item-body">
             <p class="venue">IEEE Robotics and Automation Letters</p>
+            <span class="role-badge role-lead">First author</span>
             <h3>
               <a href="https://arxiv.org/abs/2610.12241" target="_blank" rel="noopener noreferrer">
                 From Language to Motion: Task-Conditioned Focal-Stack Trajectory Integration for Microscopic Robots
@@ -80,6 +147,38 @@
             <a class="text-link" href="https://arxiv.org/abs/2610.12241" target="_blank" rel="noopener noreferrer">View paper <span>↗</span></a>
           </div>
         </article>
+
+        <article class="item">
+          <div class="item-year">2026</div>
+          <div class="item-body">
+            <p class="venue">IEEE ICRA · Under review</p>
+            <span class="role-badge">Contributing author</span>
+            <h3>
+              <a href="https://arxiv.org/abs/2607.04265" target="_blank" rel="noopener noreferrer">
+                HALO-WA: Hybrid-Attention Latent-Guided Online Reinforcement Learning for World-Action Models
+              </a>
+            </h3>
+            <p>
+              Online actor–critic refinement of world-action policies using latent features and action priors,
+              with contributions to RoboTwin, real-robot evaluation, and RLToken reproduction.
+            </p>
+            <a class="text-link" href="https://arxiv.org/abs/2607.04265" target="_blank" rel="noopener noreferrer">View paper <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="item-year">2027</div>
+          <div class="item-body">
+            <p class="venue">AAAI 2027 · Under review</p>
+            <span class="role-badge">Contributing author · 6th of 8 authors</span>
+            <h3>SPM: Surgical Plasticity Maintenance for Lifelong Reinforcement Learning in Big-World Environments</h3>
+            <p>
+              A continual reinforcement-learning study of selective plasticity maintenance for agents facing
+              non-stationarity, dead-neuron accumulation, and representation collapse in open-ended environments.
+            </p>
+            <span class="status">Submission #20592</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -90,35 +189,62 @@
       </header>
 
       <div class="project-grid">
+        <article class="project-card project-featured">
+          <p class="project-type">Lead project · Agentic VLA</p>
+          <h3>GigaHarness</h3>
+          <p>
+            A project I lead on agentic embodied systems that orchestrate VLA policies, Code-as-Policy skills,
+            robot primitives, and external tools. GigaHarness decomposes long-horizon tasks, routes skills from
+            live execution state, verifies post-action outcomes, and recovers or replans after failure. Its
+            Real2Sim2Real loop mines rollout traces into candidate skills and workflows, validates them in simulation,
+            and refines them with real-robot feedback.
+          </p>
+          <div class="code-policy-demo" data-real-duration="563.133333" data-sim-duration="562">
+            <div class="demo-heading">
+              <div>
+                <p class="project-type">Code-as-Policy · Typical execution link</p>
+                <h4>One plan, synchronized in simulation and reality</h4>
+              </div>
+              <span class="sync-chip">Time-aligned · Muted</span>
+            </div>
+
+            <div class="compare-stage" style="--split: 50%;">
+              <video class="compare-video compare-sim" muted playsinline preload="metadata" poster="assets/gigaharness-sim-poster.jpg" aria-label="Hanoi simulation video">
+                <source src="assets/gigaharness-sim-muted.mp4" type="video/mp4">
+              </video>
+              <video class="compare-video compare-real" muted playsinline preload="metadata" poster="assets/gigaharness-real-poster.jpg" aria-label="Hanoi real-robot video">
+                <source src="assets/gigaharness-real.mp4" type="video/mp4">
+              </video>
+              <span class="compare-label label-sim">SIM</span>
+              <span class="compare-label label-real">REAL</span>
+              <div class="compare-divider" aria-hidden="true"><span>‹ │ ›</span></div>
+              <input class="split-control" type="range" min="8" max="92" value="50" step="0.1" aria-label="Drag to compare simulation and real video">
+            </div>
+
+            <div class="compare-controls">
+              <button class="play-toggle" type="button" aria-label="Play both synchronized videos"><span aria-hidden="true">▶</span> Play both</button>
+              <span class="time-readout"><span class="time-current">0:00</span> / <span class="time-total">9:22</span></span>
+              <input class="timeline-control" type="range" min="0" max="562" value="0" step="0.01" aria-label="Seek both synchronized videos">
+            </div>
+
+            <p class="demo-note">
+              A Code-as-Policy execution trace mapped onto the same Hanoi task in simulation and on the real robot.
+              The shared timeline exposes state transitions across both domains as a concrete reference for skill
+              execution, post-action verification, and Real2Sim2Real feedback.
+            </p>
+          </div>
+          <span class="status">Forthcoming</span>
+        </article>
+
         <article class="project-card">
           <p class="project-type">Team Technical Report · Vision-Language-Action</p>
           <h3>GigaBrain-0.7</h3>
           <p>
-            A collaborative technical report on large-scale VLA pretraining and architecture,
-            spanning Dual-Stream MoT, temporal-spatial visual encoding, multi-embodiment adaptation,
-            and world-model-conditioned control.
+            Core architecture upgrades and large-scale pretraining for a Dual-Stream MoT VLA stack,
+            including temporal-spatial visual encoding, multi-embodiment adaptation, hierarchical
+            task–subtask–action modeling, and world-model-conditioned control.
           </p>
           <a href="https://huggingface.co/open-gigaai/GigaBrain-0.7-3.5B-Base" target="_blank" rel="noopener noreferrer">View team project on Hugging Face <span>↗</span></a>
-        </article>
-
-        <article class="project-card">
-          <p class="project-type">World-Action Model</p>
-          <h3>HALO-WA</h3>
-          <p>
-            Lightweight actor-critic online reinforcement learning for residual correction
-            under calibration, perception, and contact errors.
-          </p>
-          <a href="https://github.com/YeanRoot/HALO-WA" target="_blank" rel="noopener noreferrer">Open GitHub repository <span>↗</span></a>
-        </article>
-
-        <article class="project-card">
-          <p class="project-type">Agentic VLA</p>
-          <h3>GigaHarness</h3>
-          <p>
-            A long-horizon manipulation harness combining policy models, reusable skills,
-            robot tools, verification, recovery, and Real2Sim2Real evolution.
-          </p>
-          <span class="status">Forthcoming</span>
         </article>
       </div>
     </section>
@@ -157,5 +283,6 @@
     <span>© 2026 Junjie Xie</span>
     <a href="#home">Back to top ↑</a>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
