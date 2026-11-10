@@ -294,6 +294,7 @@ h1 span { margin-left: 10px; color: var(--muted); font-size: .38em; letter-spaci
 .status { color: var(--muted); font-size: 13px; font-weight: 600; }
 
 .code-policy-demo {
+  scroll-margin-top: 96px;
   margin: 10px 0 25px;
   padding-top: 23px;
   border-top: 1px solid #dce3f4;
