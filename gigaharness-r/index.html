@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GigaHarness-r: a self-evolving hybrid harness for embodied manipulation.">
+  <meta name="theme-color" content="#f7f9ff">
+  <title>GigaHarness-r | Project Page</title>
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="GigaHarness-r home"><span>Giga</span>Harness-r</a>
+    <nav aria-label="Project navigation">
+      <a href="#harness">Harness</a>
+      <a href="#evolution">Self-Evolution</a>
+      <a href="#results">Results</a>
+      <a href="#demo">Demo</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Embodied AI · Agentic VLA · Real2Sim2Real</p>
+        <h1>Let LLMs <em>think.</em><br>Let primitives <em>act.</em></h1>
+        <p class="hero-lead">
+          GigaHarness-r is a self-evolving hybrid harness that assigns task-level reasoning to an LLM and local physical execution to reusable Atomic-Skill VLA and Code Policy primitives.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#harness">Explore the harness</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="harness" class="section split-section">
+      <header class="section-heading">
+        <h2 id="method">Embodied Harness</h2>
+      </header>
+      <div class="section-body">
+        <p class="lead-copy">
+          Instead of asking one model to reason, plan, and control every motion, GigaHarness-r separates slow cognition from fast execution. The planner decides what should happen; specialized primitives handle how it happens.
+        </p>
+        <figure class="overview-figure">
+          <img src="assets/embodied-harness.svg" alt="The LLM planner calls Atomic-Skill VLA or Code-as-Policy through the primitive library. An independent VLM judge feeds outcomes back into memory, recovery and replanning. Three real-robot frames illustrate pick, pour and place.">
+          <figcaption>Embodied Harness and a pick–pour–place example. Real-robot frames are from Figure 1 of the manuscript.</figcaption>
+        </figure>
+        <div class="method-grid">
+          <article>
+            <span>Slow brain</span>
+            <h3>Task Planning Agent</h3>
+            <p>Understands the instruction, decomposes the task, routes primitives, tracks state, recovers from failure, and replans. The evaluated implementation uses GPT-6-Astra.</p>
+          </article>
+          <article>
+            <span>Fast execution</span>
+            <h3>Primitive Library</h3>
+            <p>Atomic-Skill VLA provides learned skills such as pick and place. Code-as-Policy uses explicit perception, geometry, and motion planning. Both share an execution interface.</p>
+          </article>
+          <article>
+            <span>Closed-loop evidence</span>
+            <h3>Independent VLM Judge</h3>
+            <p>Uses multi-view observations, reference states, and temporal evidence to assess goal satisfaction and support switching, recovery, and replanning.</p>
+          </article>
+          <article>
+            <span>Experience layer</span>
+            <h3>Hierarchical Memory</h3>
+            <p>Retains task procedures, primitive experience, and global knowledge so that execution traces can inform what happens next.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="evolution" class="section">
+      <header class="section-heading">
+        <h2>Self-Evolution</h2>
+      </header>
+      <div class="section-body">
+        <p class="lead-copy">Real2Sim2Real (RSR) refines reusable task graphs. Agent-guided trajectory selection uses execution experience to improve policy training and skill routing.</p>
+        <div class="evolution-grid">
+          <article class="evolution-card violet">
+            <p class="update-target">Task graph refinement</p>
+            <h3>Real2Sim2Real (RSR)</h3>
+            <p>When the robot fails, the agent reconstructs the scene in simulation and traces the failure to a node or transition in the Graph-as-Policy (GaP). It repairs the relevant step, transition, or recovery branch, then tests the full task in simulation and revalidates the revised graph on the robot.</p>
+          </article>
+          <article class="evolution-card blue">
+            <p class="update-target">Policy training and skill routing</p>
+            <h3>Agent-Guided Trajectory Selection</h3>
+            <p>For training, the agent selects successful expert trajectories that address diagnosed skill gaps and uses them to update learned policies. At execution time, it retrieves relevant prior skill executions and uses their verified outcomes to rank existing primitives for the current scene.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section results-section">
+      <header class="section-heading">
+        <h2>Results</h2>
+      </header>
+      <div class="section-body">
+        <p class="task-intro">AgileX and RoboDojo evaluate the harness. RoboTwin 2.0 evaluates fixed-budget demonstration selection.</p>
+        <div class="benchmark-grid">
+          <article class="benchmark-card featured">
+            <div class="benchmark-top"><span>Physical benchmark</span><strong>91.4%</strong></div>
+            <h3>AgileX real robot</h3>
+            <p>Seven language-conditioned and multi-step tasks, 20 trials per task, 128 successes out of 140. The paper reports evaluation without benchmark-specific fine-tuning.</p>
+            <p class="comparison">Compared baseline maximum: GigaBrain-0.7 at 86.51%.</p>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-top"><span>Simulation benchmark</span><strong>53.09%</strong></div>
+            <h3>RoboDojo</h3>
+            <p>Average complete-task success over 14 memory and long-horizon tasks. Average score: 60.43%.</p>
+            <p class="comparison">Strongest listed overall baseline: 46.86%.</p>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-top"><span>Data-selection study</span><strong>70.58%</strong></div>
+            <h3>RoboTwin 2.0</h3>
+            <p>Twelve tasks after adding 200 expert demonstrations to an initial set of 600 with atomic-action-guided selection.</p>
+            <p class="comparison">Same-budget random selection: 65.38%; Vanilla Codex: 70.21%.</p>
+          </article>
+        </div>
+        <div class="efficiency-strip">
+          <div><strong>12.75 min</strong><span>mean episode duration</span></div>
+          <div><strong>45.14%</strong><span>lower duration vs. official harness</span></div>
+          <div><strong>94.57%</strong><span>lower estimated API cost</span></div>
+          <p>RoboDojo efficiency comparison, with one episode per task and system.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="real-robot" class="section robot-section">
+      <header class="section-heading">
+        <h2>Real-Robot Tasks</h2>
+      </header>
+      <div class="section-body">
+        <p class="task-intro">AgileX tasks 1–5 probe object and target selection, color, and left/right relations. Tasks 6–7 test multi-step skill composition.</p>
+        <div class="task-list" role="list" aria-label="AgileX real-robot tasks and success rates">
+          <div class="task-row" role="listitem"><span>01</span><p>Place the bowl into a plate or basket</p><strong>100%</strong></div>
+          <div class="task-row" role="listitem"><span>02</span><p>Place the bowl of the specified color into the basket</p><strong>90%</strong></div>
+          <div class="task-row" role="listitem"><span>03</span><p>Place the spoon of the specified color onto the plate</p><strong>100%</strong></div>
+          <div class="task-row" role="listitem"><span>04</span><p>Place the fork on the left or right into the basket</p><strong>70%</strong></div>
+          <div class="task-row" role="listitem"><span>05</span><p>Place the wood block on the left or right onto the plate</p><strong>100%</strong></div>
+          <div class="task-row" role="listitem"><span>06</span><p>Place the tableware on the table</p><strong>80%</strong></div>
+          <div class="task-row" role="listitem"><span>07</span><p>Sort the objects into different baskets</p><strong>100%</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section demo-section">
+      <header class="section-heading"><h2>Demo</h2></header>
+      <div class="section-body">
+      <article id="hanoi" class="hanoi-section">
+      <div class="hanoi-copy">
+        <h3>Tower of Hanoi</h3>
+        <p>Drag the divider to compare simulation and real-robot footage on the same timeline. The case study illustrates a seven-move task graph repaired in simulation and revalidated on the robot.</p>
+      </div>
+      <div class="compare-demo" data-sim-duration="562" data-real-duration="563.133333">
+        <div class="compare-stage" style="--split:50%">
+          <video class="compare-video compare-sim" muted playsinline preload="metadata" poster="../assets/gigaharness-sim-poster.jpg" aria-label="Tower of Hanoi simulation rollout">
+            <source src="../assets/gigaharness-sim-muted.mp4" type="video/mp4">
+          </video>
+          <video class="compare-video compare-real" muted playsinline preload="metadata" poster="../assets/gigaharness-real-poster.jpg" aria-label="Tower of Hanoi real-robot execution">
+            <source src="../assets/gigaharness-real.mp4" type="video/mp4">
+          </video>
+          <span class="compare-label sim-label">SIM</span>
+          <span class="compare-label real-label">REAL</span>
+          <div class="compare-divider" aria-hidden="true"><span>‹ │ ›</span></div>
+          <input class="split-control" type="range" min="8" max="92" value="50" step="0.1" aria-label="Drag to compare simulation and real execution">
+        </div>
+        <div class="compare-controls">
+          <button class="play-toggle" type="button" aria-label="Play both synchronized videos"><span aria-hidden="true">▶</span> Play both</button>
+          <span class="time-readout"><span class="time-current">0:00</span> / <span class="time-total">9:22</span></span>
+          <input class="timeline-control" type="range" min="0" max="562" value="0" step="0.01" aria-label="Seek both synchronized videos">
+        </div>
+      </div>
+      </article>
+        <div class="collection-panel">
+          <div class="panel-copy">
+            <p class="eyebrow">Automated data collection</p>
+            <h3>Execution becomes the next training episode.</h3>
+            <p>The paper's supplementary collection loop couples task execution with outcome assessment, logging, reset, and repetition when the existing demonstration pool cannot cover a diagnosed need.</p>
+            <div class="flow large"><span>Execute</span><b>→</b><span>Assess</span><b>→</b><span>Record</span><b>→</b><span>Reset</span></div>
+          </div>
+          <video controls muted playsinline preload="metadata" poster="../assets/gigaharness-auto-collection-poster.jpg" aria-label="Automated real-robot data collection demonstration">
+            <source src="../assets/gigaharness-auto-collection.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span>Giga</span>Harness-r</a>
+    <p>GigaHarness-r Project Page</p>
+  </footer>
+  <script src="script.js?v=6"></script>
+</body>
+</html>
