@@ -149,8 +149,9 @@
       <div class="section-body">
       <article id="hanoi" class="hanoi-section">
       <div class="hanoi-copy">
-        <h3>Tower of Hanoi</h3>
-        <p>Drag the divider to compare simulation and real-robot footage on the same timeline. The case study illustrates a seven-move task graph repaired in simulation and revalidated on the robot.</p>
+        <h3>Tower of Hanoi · Real2Sim2Real Iteration</h3>
+        <p>Each Real2Sim2Real (RSR) iteration starts with a failure recorded on the real robot. The agent reconstructs the failure state in simulation, locates the affected step in the task graph, and tests candidate repairs. A candidate must pass all seven moves in simulation and then pass validation on the real robot before it is adopted. Further real-robot failures inform the next iteration.</p>
+        <p>For example, if a ring collides with a peg during transport, simulation can compare different lift heights and transport paths while keeping the verified grasp. Drag the divider to compare the simulation and real-robot footage on the same timeline.</p>
       </div>
       <div class="compare-demo" data-sim-duration="562" data-real-duration="563.133333">
         <div class="compare-stage" style="--split:50%">
