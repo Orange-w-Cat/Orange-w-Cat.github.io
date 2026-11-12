@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MedVLA uses active perception and state-gated function calls for closed-loop precision robot manipulation.">
+  <title>MedVLA | Project Page</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #111a31;
+      --muted: #4d5869;
+      --accent: #1f4fd6;
+      --line: #e2e7f0;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); font: 16px/1.65 system-ui, sans-serif; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(100% - 36px, 1000px); margin-inline: auto; }
+    .masthead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 20px 0; }
+    .masthead a { font-size: .9rem; }
+    .hero {
+      padding: clamp(24px, 6vw, 64px);
+      border: 1px solid #dae4f5;
+      border-radius: 20px;
+      background: linear-gradient(125deg, #f5f8ff, #fff 75%);
+    }
+    .eyebrow { margin: 0; color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 400; line-height: 1.12; }
+    h1 { margin: 12px 0; font-size: clamp(3rem, 9vw, 5.4rem); letter-spacing: -.045em; }
+    .subtitle { max-width: 29em; margin: 0; font-family: Georgia, serif; font-size: clamp(1.35rem, 3vw, 2.1rem); line-height: 1.3; }
+    .intro { max-width: 62ch; margin: 18px 0 0; color: var(--muted); }
+    section { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
+    section h2 { margin: 0 0 14px; font-size: clamp(1.75rem, 4vw, 2.45rem); }
+    section p { max-width: 74ch; margin: 0 0 13px; color: var(--muted); }
+    code { color: #193c93; font-size: .9em; overflow-wrap: anywhere; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; list-style: none; padding: 0; margin: 22px 0; }
+    .steps li { min-width: 0; padding: 15px 0 0; border-top: 2px solid #b7c9f1; }
+    .steps h3 { font-size: 1.25rem; margin: 8px 0; }
+    .steps p { font-size: .93rem; margin: 0; }
+    figure { margin: 20px 0 0; }
+    figure a { display: block; max-width: 740px; margin-inline: auto; }
+    img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+    figcaption { margin-top: 8px; color: var(--muted); font-size: .85rem; }
+    table { width: 100%; max-width: 700px; border-collapse: collapse; }
+    th, td { padding: 10px 6px; text-align: left; border-bottom: 1px solid var(--line); }
+    tbody th { font-weight: 500; }
+    td, thead th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+    tr:last-child td { color: var(--accent); font-weight: 750; }
+    footer { margin-top: 36px; padding: 20px 0 32px; border-top: 1px solid var(--line); font-size: .9rem; }
+    @media (max-width: 640px) {
+      .steps { grid-template-columns: 1fr; gap: 12px; }
+      section { margin-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead wrap">
+    <a href="https://orange-w-cat.github.io/#research">← Junjie Xie · Publications</a>
+    <a href="https://arxiv.org/abs/2609.25756v2">Read the paper ↗</a>
+  </header>
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Precision medical robotics</p>
+      <h1>MedVLA</h1>
+      <p class="subtitle">Active perception and function calling for closed-loop robot manipulation</p>
+      <p class="intro">A vision-language model reads binocular microscope views, the task instruction, and the robot state. It selects a function that can improve the next observation or execute a constrained robot action.</p>
+    </div>
+
+    <section aria-labelledby="perception">
+      <h2 id="perception">Active perception</h2>
+      <p>When the current view is too dark or blurry, MedVLA can request <code>ADJUST_EXPOSURE</code> or <code>ADJUST_FOCUS</code>. The next decision uses the refreshed binocular views, so the model can reassess visibility and alignment before choosing a motion function.</p>
+    </section>
+
+    <section aria-labelledby="functions">
+      <h2 id="functions">Function-level VLA control</h2>
+      <p>The model returns a structured decision with an intermediate judgment and a proposed function. A separate gate checks the function against the predefined library and the current state. The executor performs approved calls and returns updated observations and robot state. Rejection triggers a stop and handover to the operator.</p>
+    </section>
+
+    <section aria-labelledby="case">
+      <h2 id="case">A real-robot execution trace</h2>
+      <p>In the flexible-electrode experiment, the model first changes what it can see, then selects the next action from the updated observations.</p>
+      <ol class="steps">
+        <li><code>ADJUST_EXPOSURE</code><h3>Improve visibility</h3><p>The model requests an exposure change and receives new microscope images.</p></li>
+        <li><code>ALIGN_NEEDLE</code><h3>Refine alignment</h3><p>With usable images, it calls the alignment function and checks the updated state.</p></li>
+        <li><code>INSERT</code><h3>Execute after verification</h3><p>The insertion call proceeds once its state checks pass.</p></li>
+      </ol>
+      <figure>
+        <a href="closed-loop-case.png"><img src="closed-loop-case.png" width="2000" height="1950" loading="lazy" alt="Binocular microscope views and function calls across exposure adjustment, needle alignment, insertion, and completion."></a>
+        <figcaption>Figure 4 from the paper. Select the image to view it at full resolution.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="results">
+      <h2 id="results">Closed-loop insertion results</h2>
+      <p>Each method was evaluated over 100 trials on the flexible-electrode test platform, with matched starting states.</p>
+      <table aria-label="Success rates on the flexible-electrode test platform">
+          <thead><tr><th scope="col">Method</th><th scope="col">Success rate</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">OpenVLA</th><td>8%</td></tr>
+          <tr><th scope="row">π₀</th><td>15%</td></tr>
+          <tr><th scope="row">MedVLA · up to 3 decision rounds</th><td>73%</td></tr>
+          <tr><th scope="row">MedVLA · up to 6 decision rounds</th><td>95%</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <footer><a href="https://arxiv.org/html/2609.25756v2#S3">Experimental protocol and case study ↗</a></footer>
+  </main>
+</body>
+</html>
